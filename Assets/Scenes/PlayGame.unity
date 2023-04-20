@@ -384,6 +384,8 @@ MonoBehaviour:
   damage: 2
   range: 200
   fireRate: 0.5
+  dmgFarMult: 0.6
+  dmgMedMult: 0.85
   player: {fileID: 135756641613574983}
   fpsCam: {fileID: 109678869}
   muzzleFlash: {fileID: 386971429}
@@ -6429,7 +6431,12 @@ PrefabInstance:
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: fireRate
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
@@ -6676,7 +6683,12 @@ PrefabInstance:
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: fireRate
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
@@ -7268,6 +7280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: damage
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5494048663355600612, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
       propertyPath: mood
@@ -7487,6 +7504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: damage
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5494048663355600612, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
@@ -7844,7 +7866,12 @@ PrefabInstance:
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: fireRate
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
@@ -8056,7 +8083,12 @@ PrefabInstance:
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}
       propertyPath: damage
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
+        type: 3}
+      propertyPath: fireRate
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2415300561789996375, guid: 5a4498a0f8a1bf3499cc0310b14ef408,
         type: 3}

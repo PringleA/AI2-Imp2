@@ -14,8 +14,8 @@ public class EnemyClass : MonoBehaviour
 	public float lookSpeed = 1.0f;
 	public float maxLookTime = 30.0f;
 	public float maxRange = 300.0f;
-	public float fireSpdMult = 0.15f;
 	public float healthBarTimer = 0.0f;
+	public float fireRate = 10.0f;
 	public bool isMoving = false;
 	public bool isHiding = false;
 	public bool isRotating = false;
@@ -28,7 +28,6 @@ public class EnemyClass : MonoBehaviour
 	private float rotLength = 0;
 	private float currentYrot = 0;
 	private float nextShotTime = 0;
-	private float fireRate = 10.0f;
 	private float barVisibilityTime = 5.0f;
 	private bool rotReversed = false;
 	private bool hidden = false;
