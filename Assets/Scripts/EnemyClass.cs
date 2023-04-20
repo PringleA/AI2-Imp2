@@ -22,6 +22,7 @@ public class EnemyClass : MonoBehaviour
 	public bool playerVisible = false;
 	public Slider healthBar;
 	public BehaviourHandler behaviour;
+	public ParticleSystem muzzleFlash;
 	// private
 	private float health = 0;
 	private float rotLength = 0;
@@ -170,6 +171,7 @@ public class EnemyClass : MonoBehaviour
 		{
 			if (nextShotTime > fireRate)
 			{
+				muzzleFlash.Play();
 				PlayerController playerController = player.GetComponentInParent<PlayerController>();
 				if (playerController != null)
 				{
