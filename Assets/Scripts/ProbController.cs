@@ -137,12 +137,15 @@ public class ProbController : MonoBehaviour
 	{
 		if (0 <= distance && distance < dist.near)
 			return PlayerDist.NEAR;
-		else if (distance >= dist.near && distance < dist.medium)
+
+		if (distance >= dist.near && distance < dist.medium)
 			return PlayerDist.MEDIUM;
-		else if (distance >= dist.medium && distance < dist.far)
+
+		if (distance >= dist.medium && distance <= dist.far)
 			return PlayerDist.FAR;
 
-		else return PlayerDist.TOOFAR;
+		else
+			return PlayerDist.TOOFAR;
 	}
 }
 public struct States
