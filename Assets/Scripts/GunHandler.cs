@@ -21,9 +21,9 @@ public class GunHandler : MonoBehaviour
 
 	private void Awake()
     {
-		dist.far = 30.0f;
-		dist.medium = 23.0f;
-		dist.near = 12.5f;
+		dist.far = 27.0f;
+		dist.medium = 18.0f;
+		dist.near = 10.5f;
 	}
 
     void Update()
