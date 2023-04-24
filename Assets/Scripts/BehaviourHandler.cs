@@ -13,7 +13,7 @@ public class BehaviourHandler : MonoBehaviour
 	public float maxDelay = 12.0f;
 	public float currentDelay = 0;
 	public bool findNewState = false;
-    public ProbController prob;
+    public ValueController prob;
 	private NavMeshAgent agent;
 	private GameObject player;
 
@@ -27,12 +27,12 @@ public class BehaviourHandler : MonoBehaviour
 		stateSwitchDelay = Random.Range(minDelay, maxDelay);
 		currentDelay = stateSwitchDelay;
 
-		prob = gameObject.transform.parent.GetComponent<ProbController>();
+		prob = gameObject.transform.parent.GetComponent<ValueController>();
 		agent = gameObject.GetComponent<NavMeshAgent>();
         enemyClass = gameObject.GetComponent<EnemyClass>();
 
 		if (prob == null)
-            prob = new ProbController();
+            prob = new ValueController();
     }
 
     // Update is called once per frame

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProbController : MonoBehaviour
+public class ValueController : MonoBehaviour
 {
 	public States[] states = new States[3];
 	public float uncertainty = 0.2f;
@@ -14,7 +14,7 @@ public class ProbController : MonoBehaviour
 	// Start is called before the first frame update
 	void Awake()
     {
-		CreateProbabilities();
+		CreateValues();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ProbController : MonoBehaviour
         
     }
 
-	void CreateProbabilities()
+	void CreateValues()
 	{
 		dist.far = 25.0f;
 		dist.medium = 18.0f;

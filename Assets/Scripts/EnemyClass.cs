@@ -202,12 +202,6 @@ public class EnemyClass : MonoBehaviour
 	{
 		RaycastHit hit;
 
-		//test looking at player
-		//GameObject testLook = gameObject;
-		//testLook.transform.LookAt(player.transform.position);
-
-
-
 		// set shoot direction and origin
 		Vector3 enemyPosition = raycastSpot.transform.position;
 		Vector3 enemyForward = raycastSpot.transform.forward;
