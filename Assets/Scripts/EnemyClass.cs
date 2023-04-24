@@ -82,6 +82,13 @@ public class EnemyClass : MonoBehaviour
 		else if (healthBarTimer < barVisibilityTime)
 			healthBar.gameObject.SetActive(true);
 	}
+	public void ResetBools()
+	{
+		isMoving = false;
+		isHiding = false;
+		isRotating = false;
+		hidden = false;
+	}
 
 	private void StateTransform()
 	{

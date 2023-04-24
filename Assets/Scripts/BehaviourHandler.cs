@@ -9,9 +9,10 @@ public class BehaviourHandler : MonoBehaviour
     public EnemyState state;
     private EnemyClass enemyClass;
     public float stateSwitchDelay = 2.0f;
-    public float currentDelay = 0;
+	public float minDelay = 6.0f;
+	public float maxDelay = 12.0f;
+	public float currentDelay = 0;
 	public bool findNewState = false;
-	private float randStartDelay = 0;
     public ProbController prob;
 	private NavMeshAgent agent;
 	private GameObject player;
@@ -23,10 +24,8 @@ public class BehaviourHandler : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("PlayerCapsule");
 		// varying initial decision for enemies
-		float minStartDelay = 0.0f;
-	    float maxStartDelay = 1.0f;
-		randStartDelay = Random.Range(minStartDelay, maxStartDelay);
-		currentDelay = randStartDelay;
+		stateSwitchDelay = Random.Range(minDelay, maxDelay);
+		currentDelay = stateSwitchDelay;
 
 		prob = gameObject.transform.parent.GetComponent<ProbController>();
 		agent = gameObject.GetComponent<NavMeshAgent>();
@@ -46,17 +45,19 @@ public class BehaviourHandler : MonoBehaviour
                 currentDelay += Time.fixedDeltaTime;
 
             // allow state change if max delay is reached
-            else if (currentDelay >= stateSwitchDelay)
+            if (currentDelay >= stateSwitchDelay)
             {
                 findNewState = true;
-                currentDelay = 0;
+				stateSwitchDelay = Random.Range(minDelay, maxDelay);
+				currentDelay = 0;
             }
 
             if (findNewState)
             {
                 state = CalculateNextState(state, mood);
-                findNewState = false;
-            }
+				enemyClass.ResetBools();
+				findNewState = false;
+			}
         } 
 	}
 

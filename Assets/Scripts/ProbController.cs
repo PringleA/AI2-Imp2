@@ -29,9 +29,9 @@ public class ProbController : MonoBehaviour
 		dist.medium = 18.0f;
 		dist.near = 10.5f;
 
-		shotChance.high = 0.75f;
+		shotChance.high = 0.8f;
 		shotChance.medium = 0.5f;
-		shotChance.low = 0.25f;
+		shotChance.low = 0.3f;
 
 		// aggressive chances (lowered by uncertainty later)
 		states[2].hide = 0.8f;
@@ -66,7 +66,7 @@ public class ProbController : MonoBehaviour
 						case PlayerDist.NEAR:
 							return CalculateShot(testDist);
 						case PlayerDist.MEDIUM:
-							return false;
+							return CalculateShot(testDist);
 						case PlayerDist.FAR:
 							return false;
 						default:
