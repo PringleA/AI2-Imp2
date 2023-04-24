@@ -339,7 +339,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2415300561789996373}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -361,8 +361,8 @@ MonoBehaviour:
   lookSpeed: 5
   maxLookTime: 10
   maxRange: 999
-  fireSpdMult: 0.15
   healthBarTimer: 0
+  fireRate: 10
   isMoving: 0
   isHiding: 0
   isRotating: 0
@@ -385,6 +385,8 @@ MonoBehaviour:
   mood: 2
   state: 2
   stateSwitchDelay: 12
+  minDelay: 6
+  maxDelay: 12
   currentDelay: 0
   findNewState: 0
   prob: {fileID: 0}
@@ -422,7 +424,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7.27, y: 0.5, z: 18.71}
-  m_Center: {x: 0, y: 0, z: 10.12}
+  m_Center: {x: 0, y: -1.125, z: 10.12}
 --- !u!1 &3254960013744147635
 GameObject:
   m_ObjectHideFlags: 0

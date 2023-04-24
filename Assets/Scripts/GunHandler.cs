@@ -49,55 +49,56 @@ public class GunHandler : MonoBehaviour
     void Shoot()
     {
         RaycastHit hit;
-		int mask = (1 << LayerMask.NameToLayer("EnemyCollider"));
 		if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             EnemyClass enemy = hit.transform.GetComponentInParent<EnemyClass>();
 
-			if (enemy != null)
+            if (enemy != null)
             {
-				
-				float overallDmg = damage;
-                float distBetween = Vector3.Distance(player.transform.position, enemy.transform.position);
-				shotDist = FindEnemyDist(distBetween);
-
-                switch (shotDist)
+                if (hit.collider.GetType() == typeof(CapsuleCollider))
                 {
-					// do no damage if enemy is too far away
-					case PlayerDist.TOOFAR:
-                        {
-                            overallDmg = 0;
+                    float overallDmg = damage;
+                    float distBetween = Vector3.Distance(player.transform.position, enemy.transform.position);
+                    shotDist = FindEnemyDist(distBetween);
+
+                    switch (shotDist)
+                    {
+                        // do no damage if enemy is too far away
+                        case PlayerDist.TOOFAR:
+                            {
+                                overallDmg = 0;
+                                break;
+                            }
+                        // lower damage if far or medium dist away
+                        case PlayerDist.FAR:
+                            {
+                                overallDmg *= dmgFarMult;
+                                break;
+                            }
+                        case PlayerDist.MEDIUM:
+                            {
+                                overallDmg *= dmgMedMult;
+                                break;
+                            }
+                        // else do nothing to dmg
+                        default:
                             break;
-                        }
-                    // lower damage if far or medium dist away
-					case PlayerDist.FAR:
-                        {
-                            overallDmg *= dmgFarMult;
-                            break;
-                        }
-					case PlayerDist.MEDIUM:
-                        {
-                            overallDmg *= dmgMedMult;
-                            break;
-                        }
-                    // else do nothing to dmg
-					default:
-                        break;
+                    }
+
+                    enemy.TakeDamage(overallDmg);
+                    //enemy.playerVisible = true;
+                    enemy.transform.LookAt(player.transform.position);
+                    enemy.behaviour.state = EnemyState.LOOK;
+                    enemy.ShootRaycast();
+                    enemy.healthBarTimer = 0;
+
+
+                    string sDamage = "Enemy hit for ";
+                    sDamage += overallDmg;
+                    sDamage += " damage.";
+                    Debug.Log(sDamage);
                 }
-
-                enemy.TakeDamage(overallDmg);
-				//enemy.playerVisible = true;
-				enemy.transform.LookAt(player.transform.position);
-				enemy.behaviour.state = EnemyState.LOOK;
-                enemy.ShootRaycast();
-                enemy.healthBarTimer = 0;
-
-
-                string sDamage = "Enemy hit for ";
-                sDamage += overallDmg;
-                sDamage += " damage.";
-                Debug.Log(sDamage);
-			}
+            }
         }
     }
 	private PlayerDist FindEnemyDist(float distance)
